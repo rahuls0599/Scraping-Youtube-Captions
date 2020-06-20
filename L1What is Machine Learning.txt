@@ -1,5 +1,0 @@
-The definition of machine learning down to just five words-- using data to answer questions. We can split the definition into two parts-- using
-data and answer questions. Using data is what we refer to as training, while answering questions is referred to as making predictions. Training
-refers to using our data to inform the creation and fine tuning of a predictive model. This predictive model can then be used to serve up 
-predictions on previously unseen data and answer those questions. As more data is gathered, the model can be improved over time and new 
-predictive models deployed. 
