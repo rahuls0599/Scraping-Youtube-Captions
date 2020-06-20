@@ -1,17 +1,21 @@
+"""This script accepts a YouTube Video id,
+and stores the available captions (if any) in a file at current working directory"""
+
 from youtube_transcript_api import YouTubeTranscriptApi
+
 # provide the video id- the part after v=...
-video_id = r'VUW2pIjDpEk'
-# provide the naem of output file in quotes
-filename = "wsl2"
+VIDEO_ID = r'VUW2pIjDpEk'
 
-captions = YouTubeTranscriptApi.get_transcript(video_id)
-total_caption = ""
+# provide the name of output file in quotes
+FILE_NAME = "wsl2"
 
-for word in captions:
-    total_caption = total_caption + word['text'] + "\n"
-    #print(word['text'])
+CAPTIONS = YouTubeTranscriptApi.get_transcript(VIDEO_ID)
+TOTAL_CAPTIONS = ""
+
+for word in CAPTIONS:
+    TOTAL_CAPTIONS = TOTAL_CAPTIONS + word['text'] + "\n"
 
 
-text_file = open(filename+".txt", "w")
-text_file.write(total_caption)
-text_file.close()
+TEXT_FILE = open(FILE_NAME+".txt", "w")
+TEXT_FILE.write(TOTAL_CAPTIONS)
+TEXT_FILE.close()
