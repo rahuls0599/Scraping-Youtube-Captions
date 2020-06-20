@@ -1,0 +1,201 @@
+YUFENG GUO: Every data scientist
+has different preferences
+when it comes to their
+programming environment--
+vim versus emacs, tabs
+versus spaces, Virtualenv
+versus Anaconda.
+Today I want to share
+with you my environment
+for working with data and
+doing machine learning.
+You most definitely do
+not need to copy my setup,
+but perhaps some bits of it
+can serve as useful inspiration
+for your development
+environment.
+To start with, we need
+to talk about Pip.
+Pip is Python's package manager.
+It has come built into
+Python for quite a while now,
+so if you have Python, you
+likely have Pip already.
+Pip installs packages
+like tensorflow and numpy,
+pandas and Jupyter,
+and many, many more,
+along with their dependencies.
+Many Python resources
+are delivered
+in some form of Pip packages.
+Sometimes you may see a
+file called requirements.txt
+in someone's folder
+of Python scripts.
+Typically, that file outlines
+all of the Pip packages
+that that project
+uses, so you can easily
+install everything
+needed by using pip
+install -r requirements.txt.
+As part of this
+ecosystem, there's
+a whole world of version
+numbers and dependencies.
+I sometimes need to
+use different versions
+of a given library for different
+projects that I'm working on.
+So I need a way to organize
+my groups of packages
+into different
+isolated environments.
+There are two popular
+options currently
+for taking care of managing
+your different Pip packages--
+virtualenv and anaconda.
+Virtualenv is a
+package that allows
+you to create named
+virtual environments where
+you can install Pip packages
+in an isolated manner.
+This tool is great
+if you want to have
+detailed control
+over which packages
+you install for each
+environment you create.
+For example, you could create an
+environment for web development
+with one set of libraries,
+and a different environment
+for data science.
+This way, you won't need to have
+unrelated libraries interacting
+with each other, and it allows
+you to create environments
+dedicated to specific purposes.
+Now, if you're primarily
+doing data science work,
+Anaconda is also a great option.
+Anaconda is created by
+Continuum Analytics,
+and it is a Python
+distribution that
+comes preinstalled with lots
+of useful Python libraries
+for data science.
+Anaconda is popular
+because it brings
+many of the tools used in
+data science and machine
+learning with just
+one install, so it's
+great for having a
+short and simple setup.
+Like Virtualenv, Anaconda
+also uses the concept
+of creating environments so as
+to isolate different libraries
+and versions.
+Anaconda also introduces its
+own package manager called conda
+from where you can
+install libraries.
+Additionally, Anaconda still has
+the useful interaction with Pip
+that allows you to install
+any additional libraries which
+are not available in the
+Anaconda package manager.
+So-- which one do I use,
+virtualenv or anaconda?
+Well, I often find
+myself testing out
+new versions of tensorflow
+and other libraries
+across both Python
+2 and Python 3.
+So ideally, I would like
+to be able to try out
+different libraries on both
+virtualenv and anaconda,
+but sometimes those
+two package managers
+don't necessarily play nicely
+with each other on one system.
+So I have opted to use both,
+but I manage the whole thing
+using a library called pyenv.
+Conceptually, pyenv sits atop
+both virtualenv and Anaconda
+and it can be used to control
+not only which virtualenv
+environment or Anaconda
+environment is in use,
+but it also easily
+controls whether I'm
+running Python 2 or Python 3.
+One final aspect of
+pyenv that I enjoy
+is the ability to set a
+default environment for a given
+directory.
+This causes that
+desired environment
+to be automatically activated
+when I enter a directory.
+I find this to be way
+easier than trying
+to remember which
+environment I want to use
+every time I work on a project.
+So which package
+manager do you use?
+It really comes down to your
+workflow and preferences.
+If you typically just use
+the core data science tools
+and are not concerned with
+having some extra libraries
+installed that you
+don't use, Anaconda
+can be a great choice, since
+it leads to a simpler workflow
+for your needs and preferences.
+But if you are someone who loves
+to customize your environment
+and make it exactly
+like how you want it,
+then perhaps something like
+virtualenv or even pyenv
+maybe more to your liking.
+There's no one right way
+to manage Python libraries,
+and there's certainly more
+out there than the options
+that I just presented.
+As different tools
+come and go, it's
+important to remember that
+everyone has different needs
+and preferences.
+So choose for yourself-- what
+tools out there serve you best?
+So what does your
+Python moment look
+like, and how do you keep it
+from getting out of control?
+Share your setup in
+the comments below.
+Thanks for watching this
+episode of Cloud AI Adventures.
+Be sure to subscribe
+to the channel
+to catch future episodes
+as they come out.

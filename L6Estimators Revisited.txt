@@ -1,0 +1,17 @@
+As the number of feature columns in a linear model grows, it can be increasingly difficult to achieve high accuracies in your training as the 
+interactions between different columns get more complex. This is a known problem, and one particularly effective solution for data scientists 
+to use is deep neural networks. Deep neural networks are able to adapt to more complex datasets and better generalize to previously unseen data
+because of its multiple layers. Hence why they're called deep. These layers allow them to fit more complex datasets than linear models can. 
+However, the trade-off is that the model will generally tend to take longer to train, be larger in size, and have less interpretability. So why
+would anyone want to use it? Because it can lead to higher final accuracies on this complicated dataset. One of the tricky things about deep 
+learning is that getting all the parameters to be just right can be very tough. Depending on your dataset, the configurations can seem 
+virtually limitless. However, TensorFlow's built-in deep classifier and deep regressor classes supply a reasonable set of defaults that you can 
+get started with right away, allowing you to get going quickly and easily. The main change comes from replacing our linear classifier class 
+with DNN classifier. This will create a deep neural network for us. Virtually everything else remains the same. There is one additional 
+parameter that is required for the deep neural network that we did not include previously. Since deep neural networks have multiple layers, and
+each layer has potentially a different number of nodes, we'll add a hidden units argument. The hidden units argument allows you to supply an 
+array with the number of nodes for each layer. This allows you to create a neural network simply by considering its size and shape rather than
+writing the whole thing from scratch by hand and wiring everything up. Adding or removing layers is as simple as adding or removing an element 
+in the array. Of course, with any preconstructed system, what you gain in convenience, you often lose in customizability. DNN classifier tries 
+to get around this by including a number of additional parameters that you can optionally use. When left out, some regional bold defaults are 
+utilized. For example, the optimizer, the activation function, and dropout ratios are all available to customize, along with many others. 

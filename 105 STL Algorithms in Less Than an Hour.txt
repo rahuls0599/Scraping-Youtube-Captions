@@ -1,0 +1,1075 @@
+what we're going to talk about today is
+the SCL algorithms we're going to start
+off this talk with a question to you who
+in this room is aware of the fact that
+it's a good thing to know the SDL
+algorithms just raise your hand if
+you're a way that that aware of that
+factors pretty much every everyone hands
+rising that's pretty cool second
+question who knows them all
+raise your hand go on then that's pretty
+much that that's actually no one no
+one's hand rising out that's exactly the
+purpose of this talk when you walk out
+of that room you will know every single
+thing that's in the stl algorithms
+library to do that I suggest that we
+start with a brief chat about why it's
+important to know them and what to learn
+in them and then we dive in the SDL
+algorithms themselves all right so
+there's this thing that's been
+popularized across the C++ community
+over the past few years that's we we
+need to know all the algorithms and we
+need to know them well very well but why
+what for one thing they can make our
+code more expressive and they do that by
+raising levels of abstraction which
+means that they allow to express what we
+want to do as opposed to how we want it
+executed and I think that raising the
+level of attraction is one of the most
+efficient way to roil expressive codes
+and it can be sometimes spectacular Lord
+if you've seen that talk couple of years
+back by Shawn parent which was called
+C++ seasoning in that talk Shawn took a
+chunk of code there was bit hard to
+understand
+and he refactored it into a more concise
+and expressive piece of code just by
+picking the right SEO algorithm that's
+not the only reason if we write
+ourselves our manipulations on
+collections then we have to have to
+write somehow the traversal of a
+collection you have to write a for loop
+if we don't resort using STR algorithms
+and when we write for roofs there are
+things that can go wrong like for
+example we need to be sure that the
+traversal doesn't go past the end it's
+like we have to run that mental check
+run the loop in our head to make sure
+when even then there's a risk and if we
+go past the end of a collection in C++
+then we get into undefined behavior and
+from that point on anything can happen
+literally anything can happen and and
+that's a load by under standards was
+happening on the screen right now is
+absolutely legal C++ even though it's
+probably more likely that you get a
+crash than clown popping up next to you
+but still the clown is legal I just and
+it another kind of mistake is dealing
+with the kind of with the case of an
+empty loop and and that's the same thing
+we have to run it in our head have a
+risk of it going wrong sometimes and
+then going to undefined behavior all
+over again with the STR algorithm this
+doesn't happen that's one more reason to
+use them another case of mistake we can
+make when writing our own for loops is
+is about complexity like some algorithms
+that they can be implemented naively in
+quadratic complexity and in more astute
+manner in a linear complexity we go back
+to an example later with algorithms on
+sets
+also SDR rhythms are used by billions of
+people every day
+well maybe not billions of people every
+day but quite a lot of people fairly
+often one seriously there are parts of
+standard C++ which means that you should
+not be afraid to use them and think that
+maybe somebody's not going to be able to
+understand them because they don't know
+them I think we should level up to the
+EFT algorithms and not the other way
+around so this is the common this is
+part of the common vocabulary of C++
+just as much as int or if or whatever
+the language is and it's so so standard
+that even if you're running an older C++
+version you can still get most of the
+essay algorithms like for example if
+you're in C++ oh three for example and
+and you want to use like all over any o
+for none of which appeared in C++ 11
+what you can just grab that code and
+copy it into your code bases or start
+using them so most of them are within
+your reach whichever version of C++
+you're right now right so now let's say
+that you want to go to the SDR events
+you want to take that path well there's
+a trap that's lying just at the
+beginning of that path and this is
+called for each for each is one of yes
+yet algorithms it's it's nothing there's
+nothing wrong with it
+it has a use case I will see a bit nice
+ah but the trap that it represents is
+that it looks like a full roof right
+because it takes a beginning an end and
+some code that you can like it will
+execute an every element of the
+collection just like you for it so you
+might be tempted to think that you can
+replace all you four lips by for each
+and and that and that you'll be done
+I'll be using VSD algorithms and
+it's not quite the spirit because
+there's much more than for each in in
+VSD algorithms library there is much
+many more many more algorithms that let
+you express more nuance when you write
+your code I'm going to show you
+something to illustrate the fact that
+there's much more than four each in the
+SDR rhythms library
+[Music]
+[Music]
+[Music]
+[Music]
+ladies and gentlemen I present you the
+world of the FCR Gardens on this map
+I've placed all the STR algorithms as of
+C++ 17 and I've grouped them by region
+according to the logical relationship
+they have right the rest of this talk
+will consist in exploring that world but
+before diving in we can note a few
+things while I'm looking at it from the
+farm the first thing we can note is that
+for each is just one of them on one I
+learn loston Rost on the on the middle
+of the ocean so it's just one of them
+what we can know also is where most of
+them are you can observe that the
+largest region on that world is over
+here and that's the lands of queries
+call that queries because all those
+algorithms are live here they just read
+into the collection and an extract some
+piece of information and they don't
+actually modify it I don't know what you
+think but I would have thought that most
+algorithm would somehow change the
+collection like sort of partition or
+whatever I are there as well but most of
+them that just read any operations I
+suggest that it stars our journey by the
+other end of the world from for each
+down here on the algorithms on heat so
+what is a heap to begin with a heap is a
+data structure that looks like a tree
+but that has a property it's that every
+node must be smaller than its children I
+think it's called that because it kind
+of like looks like a heap in real life
+like the small ones are at the top
+and the bigger one has at the bottom we
+it's better having yeah the heap now you
+can observe that the heap on the rice of
+a picture is the other way around right
+the biggest internment is up the top and
+every element is bigger than its
+children
+that's the C++ heap it's called a max
+heap the relationship between the the a
+parent and his children is the parent is
+bigger right so it's it's the other one
+from the heap from real life but you
+know we develop I don't really in real
+life anyway so that's it really matter I
+don't think so so one interesting
+property of a heap is is that we can
+squash it down into a range like that
+one more time more slowly to squash down
+a heap into a range we take the first
+row which is just a root of the tree and
+then the second row and then the third
+row and so on and so forth
+and when we do this there's this nice
+property that it's arranged so we can
+represent it with a vector for example
+which is quite convenient to work with
+and also to go from a node to its left
+child it's essentially taking its index
+and multiplying it by toes nearly that
+so it's it's a it's a way to represent a
+tree into a range if we have a range we
+have a beginning and then and we can use
+s t-dog are those so the first thing we
+can do is taking values that are not
+particularly a heap and rearrange them
+so that they respect the heap property
+to make a heap to make a heap we use
+stood make heap with the beginning of
+men and that rearranges the element
+inside of a collection that's our first
+algorithm of the day that's one down 104
+to go I forgot to mention it's 105 SEO
+algorithms in less than an hour each
+just making sure we've got the same
+understanding here right now enjoy again
+there all right well either way you'll
+find out let's move on what we can do
+with a heap is add something to it in
+the penalty from C++ to add some things
+to heap we put the new thing right at
+the end and it might not be its right
+position because it might be smaller
+than its father and the way to add it to
+the heap is to swap it with its parent
+until it reaches its final position
+all right now to do that in C++ we can
+squash down the heap write a represented
+as a range say that its effects are we
+add something to the end and then we
+need to do some we need something to
+make it bubble its way up to its final
+position
+and that's push it now per shape just
+does the same thing we've seen with the
+tree vision but in in range vision now
+to remove something from a heap or
+there's this thing with heap why do we
+use heaps in the first place is to be
+able to get the maximum value of the
+collection in in not too much time and
+constants on time like the heap the max
+element of the collection is just a font
+so this is what we access and this is
+also what we allowed to remove to do
+that we swap it with the last one that's
+what pop heap does at this point the
+range in yellow is probably not a heap
+because there's the one at the end that
+was probably this one of the smallest
+ones that that was at the beginning so
+we need to make it bubble its way down
+to its final position and that's what
+pop hip does and if you want to remove
+to actually remove that value we pop it
+back from the back time now if we don't
+pop you back from the vector but leave
+it here and and do that again for the
+parts in yellow but the shrinking heap
+if we do that over and over
+at the end we'll get can someone see
+what we'll get at the end yeah right a
+sorted collection so that's a way to
+sort a collection and that's what sort
+heap stood still thought heap dots
+talking about sorting this is the region
+around the corner the short of sorting
+so let's see how to saws with the SEL
+well the simplest way probably is stood
+sorts that takes a collection they can
+end and rearranges them so that they're
+in sorted order okay now if we only want
+to sort the beginning of a collection as
+we sew in we saw in depth in frets talk
+we can just partial sort the things the
+partial sort takes the beginning and
+then and sort of like a middle something
+inside of the collection and sorts the
+connection from the beginning to that
+point and the rest is in unspecified
+order right so they're the left-hand
+side of the collection is what would be
+that if it was completely sorted now to
+sort just one element that's enth
+elements which takes a begin and end and
+something inside of the collection and
+puts at that position inside of a
+collection the element that would be
+there if the whole thing was sorted and
+and for the rest everything that's on
+the left is smaller and everything
+that's on the right is not smaller
+there's saw heap which we've mentioned
+with repeatedly coding pop heap and
+there's in place March in place March is
+the incremental step in a merge sort so
+we've got a collection that we can
+mentally think of as two two halves and
+merge swords so the to match the two
+halves are sorted and March thoughts
+combines the whole thing into into a
+sorted collection so that's about saw
+the thing with the SDR
+just further the shawl
+there's the region of party partitioning
+so what's what's partitioning in the
+first place to partition a collection is
+to look at it through a predicate
+something that returns a boolean here
+our predicate is being blue to partition
+a collection is putting all the blue
+ones at the beginning and although not
+blue ones on the end of course it works
+poor blue and red and yellow and
+actually every any predicate aerates the
+the border between the blue ones and the
+not blue ones is called the partition
+point that's the end of the blue range
+and that's also the beginning of the not
+blue wrench can you see that
+okay that's called partition point and
+to retrieve it from a partition
+collection there's third partition point
+right
+if we take a step back on that part of
+the world that was the land of
+permutation that place where elements
+move around the collection even if they
+don't change value within heaps salt
+partition and there are a few others
+that we'll go through quickly
+there's the this permutation that takes
+the element at the end and put it at the
+bottom put them at the pot at the
+beginning sorry that's rotate another
+way to change the order of the element
+of the collection is to do that randomly
+math word stood shuffled ours so Sutro
+fool takes a collection with elements in
+a certain order and takes something that
+generates random numbers and rearranges
+the collection in random order there is
+an order we can define on permutations
+like given us given a set of object
+given a collection of object we can
+order them order all they have possible
+arrangements
+and an intuitive way to see that is
+thinking about an alphabetical order
+right so in this collection 1 2 3 all
+the way to 9 the smallest one if those
+we're in a dictionary would be first 1 1
+all the way to 9 and the one just after
+would be the same thing with a nine and
+an eight
+swoop together right and and so on and
+the largest one with the one at the
+bottom here from nine down to one right
+if you have a collection in a given
+order any order between the smallest and
+the biggest one next permutation which
+takes beginning then would rearrange it
+so that it goes to the older that's just
+after it and present permutation to the
+order that's just before it that's
+interesting if you'd like to do
+something for every possible arrangement
+of a collection we can repeatedly call
+next permutation until you've recycled
+back to the beginning and finally the
+last one is reverse that reverse is the
+element collection right so we've been
+all around the lands of permutation just
+in the corner of the map here are the
+secret rooms the secret rooms are things
+that you can combine with other
+algorithms to generate new algorithms
+I call them runes because it's like it's
+like going to see runes to augment your
+powers and also because I find that kind
+of cool as a name so let's let's call
+them that purpose of this presentation
+we've we've seen all the algorithm that
+go with the stable brain so stable when
+you tack it on to an on grow them it
+does what this algorithm does but keep
+the relative order think about partition
+for example it put all the blue ones at
+the beginning that's for sure but maybe
+in the process some of them got swapped
+around with stable partition they all
+keep the same relative
+same thing the stable saw the is room
+takes for a critical in the collection
+we know what sort partition he means or
+assorted is partition is heap returns a
+boolean to say indicate whether it's a
+sorter the partition or heap that way
+looking at and is until returns an
+iterator that's the first position where
+that predicate doesn't hold anymore
+right
+so for example if we have a sorted
+collection and then we call is sorted
+until we'll get the end of that
+collection all right let's take a step
+back so we've been down there in the
+lands of permutation let us now focus on
+the largest part of the world the lands
+of queries now quite a few of them in
+there but we'll go through them quite
+quickly so one thing you can extract out
+of a collection is some sort of value
+for example the simplest one is probably
+count that takes beginning and then and
+the value and returns how many times
+this value occurs in the collection
+there's accumulate that makes the sum of
+the element of the collection calling
+operator plus or any custom function
+you'd pass it in C++ 17 does reduce that
+appeared that does practically the same
+thing as a cue light except it has a
+slightly different interface it can
+accept to take no initial value and it's
+it can also be run in parallel but
+essentially it's the same as accumulate
+and transform reduce takes a function
+and applies that function to the element
+of the collection before occurring
+accordingly reduce partial sum
+well it sounds the all the elements
+starting from the beginning to the
+current point of the collection so here
+Porsche Austin would return a collection
+with in the first position the what was
+in the first position of the original
+collection and in the second one would
+be the first one plus the second one and
+the third one would be the first plus
+the second glass the third so on and so
+forth
+interest in C++ 17 there is inclusive
+scan exclusive scan transform inclusive
+scan transform exclusive scan shall have
+interesting names let's say well
+inclusive scan is the same thing is the
+same thing as partial sum except it can
+be run in power parallel exclusive scan
+is the same thing as inclusive scan
+except it doesn't include the current
+element so for example with the
+exclusive scan the second element would
+be equal to the first element of the
+photo of the original collection the
+third one would be one plus two the
+fourth one would be 1 + 2 / 3 and so on
+and so forth and the transform versions
+of those two guys take a function apply
+it to the collection and then perform
+the including stash exclusive scan in a
+product makes the inner product of the
+collection which is multiplication of
+the counter pal counterparts elements
+and then summing that whole thing
+adjacent difference makes the difference
+between every two neighbors in the
+collection and sample appeared in
+appearing in C++ 17 take something that
+can return some I can generate random
+numbers and it takes a number say n and
+it produces an element of that
+collection selected randomly
+apart from query value we can query a
+property well there's all of any other
+none of which are really useful in
+everyday code all of takes collection
+and predicate returns if all of the
+elements satisfy that predicate any of
+if at least one element satisfy the
+predicate and none of if no element
+satisfy that pretty good now what do you
+think all of return returns with an
+empty collection what do you think right
+true does it run everyone agrees with
+Fred yeah that's true any of an empty
+collection yeah false
+Norah don't there's only two possible
+answer answers yeah true absolutely that
+was squaring a property on one range we
+can also query a property on two ranges
+which is essentially different ways of
+comparing them the simplest words
+compared to ranges is to see if they
+have the exact same contents so the
+element would be equal to y2 and it
+would have the same size and that's what
+stood equal returns returns a boolean
+now if we'd like to know if the two
+collections contain the same elements
+but not necessarily in the same order
+that's is fermentation also returning a
+boolean now we can also compare ranges
+and and say which one is smaller than
+the other one to define smaller we could
+go with size that's not very precise
+that's another way to do that is going
+back to the alphabetical lexicographical
+ordering all right all right in this
+example that I've used characters but
+that that can be with any type that has
+a comparison operator you can see on
+this example that
+the left collection is smaller than the
+second one and the right one if it was
+in if there were in a in a dictionary
+right even though it's it's longer in
+terms of size it would come before in a
+dictionary and that's what
+lexicographical compare returns in the
+form of a boolean now the last way to
+compare to collection is to traverse
+them both and stop whenever they start
+defer defer em and miss that's what miss
+much has stood miss much and it returns
+a pair of iterators pointing to the the
+respective position where they start to
+differ in their collections now a
+classical classic a classic thing to
+extract in a collection is a position
+like looking for something or to look
+for something in a collection are
+essentially two ways to do that it
+depends on whether the collection is
+sorted or not sorted if it's sorted we
+can use binary search it's not saw to
+have to go all the way through from the
+beginning let's start with a not sorted
+case because it has the least number
+number of algorithms well the simplest
+one and very famous one is fine the
+point takes a value thanks sorry a
+beginning and end and value and returns
+the iterator we're pointing to that
+value now or end if that value is not is
+not found now it has a sort of like twin
+brother that's much less famous but why
+useful as well and it's called a Jason
+point and that returns the first
+position where two adjacent value occur
+and are equal to the value search so
+jason firing takes beginning and end and
+a value
+returns the first position where two of
+those values appear in a row on the
+sources side we are not really looking
+for a value because searching for a
+given value could could it could be at
+several places and since its sorted
+there would be lumped together right so
+in this example if we're searching for
+orange we're actually looking for a sub
+range that could be MC for orange it's
+not there at all and that's what equal
+range returns its search in a sorted
+collection we use equal range now other
+algorithms that sort of like look like a
+lower bound and upper bound and they
+only indicate positions to insert
+elements now if I were to insert a new
+orange at the left of the existing
+orange I would use lower bound and on
+the right of the existing orange I would
+use upper bound and there's this guy a
+binary search that returns a boolean
+which is a bit unexpected
+because he takes beginning then and the
+value and only tells you whether it's
+there or not but doesn't tell you where
+it found it and it uses a binary search
+which is there which is a good thing now
+we've been looking for one value in a
+collection like orange we can also look
+for a range of value in a collection
+like looking for the first occurrence of
+the sub range in a big range like like
+looking for that range on the left in
+the big range to do that there's an
+algorithm that has a very bizarre name
+because it's called search I don't know
+what you think but for me search is
+almost the same as find except fine safe
+that it will find it right and search
+says it will try to find it but such has
+nothing to do with fine it searches a
+sub range into a range that's not the
+best name the best I think the most
+curious name the whole STL armory is
+what follows which is looking for a sub
+range but starting from
+the end it's called fine end that's good
+to know isn't it
+and what we can search in a sub range is
+any of any of the value in the literal
+range finding its first occurrence in
+the big range and that's fine first of
+and finally we can search for a relative
+value which is largest one or the
+smallest one that's max in events or
+main element or both
+I mean Mac cinnamon that returns a pair
+of iterators pointing to the max and the
+min sorry that min and the max amounts
+Freud we've been around the largest part
+of the world now we're going to move in
+my favorite place it's the glorious
+County of the algorithms and sets
+because they're glorious well what's a
+set to begin with it includes stitch set
+but not not only in C++ what we call a
+set is any sorted collection so stood
+said is sorted and is a set but a sorted
+vector for the purpose of the sto
+algorithms is also considered as a set
+set difference which is my favorite
+algorithm takes two sets and returns the
+elements that are in the first one but
+not in the second one and it's in phases
+like that it produces is out by out an
+output a traitor I like it so much
+because it's useful all the time and
+it's also in linear complexity and it
+would be easy to implement it in
+quadratic complexity but it's an inner
+convexity because it uses the fact that
+the input that sorted and also its
+output is sorted so at dif have siblings
+set in the section that returns in a
+member are both in a and B set Union
+that returns element that are in a or in
+V so every
+set symmetric difference which is I
+think the longest name yeah it's the
+longest name in the whole area
+fun fact that returns the elements are
+in a at not in B and those that are in B
+and not in a includes that returns a
+billion that indicates whether all the
+elements of B are also in a and merge
+that takes two sorts of connection and
+puts them together into one big sorted
+collection oh that's it was that - sure
+okay let's take a step back we've we've
+been in their most populated regions of
+the world all over here we now have just
+these parts small parts to cover so
+maybe we'll take an out after all
+so let's go to this place that the place
+of movers movers are Gotham's that move
+things around the simplest way to move
+things around is probably to copy them
+so sit copies will be the simplest
+algorithm in the whole library takes two
+collection well takes one collection
+with a beginning an end and the outputs
+iterator of a second collection or back
+in size that I'll stream it writer
+whatever and copies every element of the
+first correction into the this out page
+writer
+there's also stirred move like we nice
+Ted move likes to move but there's also
+stirred move the algorithm and it takes
+beginning an end and in our output
+iterator just likes it copy and it's
+cause the usual student move on every
+element of the info collection so after
+stood move the algorithm all the
+elements of the input collection are
+moved and to swap the contents of two
+ranges there's swap branches and they
+all
+obviously have to be the same size now a
+little exercise let's say is that we've
+got a collection at the top one two
+three all the way up to ten and we would
+like to write some codes and use an
+algorithm that we've seen from the
+beginning of that talk up until now to
+turn it into the collection at the
+bottom so we want to copy the first five
+elements for positions down which
+algorithm do you think we could use to
+do that on there's less than 105
+possible answers yeah copy absolutely
+so we just copy I I thought I thought it
+used copy as well
+and and then I did I think it crashed
+when I used it so let's see what happens
+what's happening so the first thing copy
+does is to copy the first element right
+to the output so so I don't if you were
+thinking about that but I put as an
+output a traitor begin plus four plus
+sorry plus three and then we've lost a
+value we've lost four right which is
+annoying what we would like to do is to
+copy but starting from the last one
+right because we think care about the
+eight that used to be that and then move
+all the way back up yeah so what we
+would really like to do is to copy the
+backwards that's what we're going to say
+right yeah copy backwards
+and there's also move backwards that
+does the same thing but moves right so
+that's the movers now just down around
+the corner as the value modifiers which
+I would have expected to be more
+numerous but there's just four of them
+in them quite large piece of land so
+those guys actually change the values
+inside of a collection so how can we
+change the values inside of a collection
+one easy way to do that is to put the
+same value everywhere
+that's what filled-out does it takes
+begin and end value and Kapisa values
+all the way through another way that
+submit similar in spirit is to use a
+function that that can be called with no
+arguments and we call that function once
+for every element of the collection
+that's generate another way it's a field
+of collection and that's quite useful to
+have like I don't know a unit test and
+stuff like that to have a quickly a
+sequence of values its iota has a funny
+name I think it takes beginning and then
+value put that value at the beginning
+and then increment it and increments it
+until it fills the whole collection with
+increments and finally there's replays
+that quite expectedly replaces the
+values in a collection like replace for
+support three will replace every forces
+so you bite your 43 in a collection of
+ends right now jumping above the water
+that's this islands of the structured
+changes what I call the structure
+changes is is the algorithm starts after
+they've done that drove the the
+collection doesn't look the same even
+from afar so
+there are two of them remove an unique
+remove is used to remove values but
+there has something peculiar with it
+since sto algorithms only access the
+iterators of a collection and not the
+collections themselves they can't change
+the size for example of the collection
+they can't perform an erase in a
+collection or the can do is to change
+the values between the beginning and the
+end
+so what remove stood remove does is to
+pull up the collection by leaving only
+those that should not be removed so if
+we want to remove ninety-nines we used
+to remove begin and 99 and it will pull
+up everything that's left without the 99
+and what what's at the end is not
+specified we can't rely on it it could
+be it could be theorem and that where
+that before it could be 99 be anything
+else it could change vary from compiler
+to compile and from version to version
+so we can't rely on that and to actually
+remove those element from say a vector
+we have to call a method on the
+container like arrays on the vector
+would like to erase what all the other
+element that are crossed out and to do
+that remove returns an iterator that
+points to the first element that's
+crossed out so we have to erase between
+what remote remove returns and the ends
+which is quite of a mouthful of code to
+remove the 99 the connection isn't it I
+think that we should not use that codes
+and should wrap it into a function with
+a nicer name and use this you know
+everyday code I reckon there's been a
+proposal by STL Matthias the other guy
+to add those functions to the standard
+hasn't been accepted yet so until it is
+if it is we should just wrap this
+function is
+quite another thing to do you want to
+grab the code is it's been published on
+free on C++ last week Aragon unique does
+something quite similar it removes a
+double that duplicates in a collection
+or more precisely the adjacent
+duplicates in a collection right so if
+we do unique here this correction has
+several ninety-nines and it will remove
+only the adjacent 99 because it has a
+linear complexity will only traverse the
+collection once and uniq will also put
+up the values that are to be left and
+return an iterator answer the values to
+them
+yeah the values that crossed out those
+value we can't rely on them just right
+remove and we have to erase them quite a
+bit of code from not much and we should
+package that into the function with a
+bad name without unique it's a better
+name I'm not sure but we should at least
+package that into a function I've got a
+question there sorry I couldn't hear
+that you need one was not removed that's
+good as a variation and it's not removed
+because there's no adjacent ones in the
+collection thanks for that we've been
+logged in your own copy we've seen all
+the algorithm that I'll combine with
+copy in the SDA logarithms library so
+copy you can check it on an algorithm
+like those algorithms and it creates new
+algorithms that do the same thing but in
+a new collection so like remove or
+unique or replace whatever they operate
+in place those guys they leave the
+collection untouched and they're taken
+out for iterator and they produced
+output to that output iterator
+we've also unlocked if that as a
+predicate so we're say fine for example
+what's taking the value fine if takes a
+predicate it does essentially the same
+thing
+and we're going to go to that part we've
+started with the talk with the Lonely
+Island's with for each and transform
+let's start with transform I there's
+nothing wrong with for each transform
+the reason why I put them on on Lonely
+Island's is because I couldn't see in
+what family they would belong I think
+they sort of like separate even though
+it's not a problem in itself so
+transform essentially the applies
+function to the elements of a collection
+so it takes a collection began a
+function f and an output like an output
+iterator such as this back inserted here
+and and it produces the well the
+implicit application of that function to
+every element in the collection what's a
+bit less famous that transform is its
+author of overloads the one that takes
+two collections and a function that
+takes two parameters right so a it
+applies that function just like
+transform with one input collection to
+the the two collection by feeding the
+two collection into F for each element
+and producing the output yeah like for
+example if you'd like to sum the
+elements of two collection to buy see
+you can do that with one line of code in
+with transform and F would be stood plus
+and that's for each and for each if we
+if we think about what it does so for
+each takes begin and end and some piece
+of code a function could be a lambda for
+example or regular function and it
+applies that function to every element
+what's interesting to note is that it
+doesn't care about what f returns so
+for the purpose of for each F might as
+well return void now what does a
+function that return that returns a void
+do any one idea yeah exactly
+sine of X for each is made to perform
+side effects now
+our side effects a good thing or a bad
+thing is absolutely not the purpose of
+that talk even though I think that some
+case are useful for say of with side
+effects but for each is made for doing
+side effects that could be side effects
+on the LMS and felt that themselves
+modifying the elements of the collection
+or that the side effect in the more
+general sense of sending stuff to logger
+or whatever alright but for each is made
+for side effect using for each for
+making anything else such as a partition
+or refine or whatever is not the right
+easier to for each their algorithms are
+more appropriate than for each and if
+there's no algorithm more appropriate
+than for each in the Esther algorithms
+then the algorithms outside of VHDL are
+away and we briefly talk about them in a
+minute ok so we've been literally all
+around the world we've sorted down there
+we've been in a lot of queries the
+glorious Qin County of algorithms and
+set movers the value modifier is and the
+structure changes and even up there
+there's only one place we haven't been
+yet the raw memory so we're gonna finish
+up with that one what does that mean
+algorithms in the raw memory well if you
+think back to fill and copy and move
+they have one thing in common is one
+does anyone see what they have in common
+is that they use the assignment operator
+for each the signs are forwarded to
+sorry Phil assigns a 42 copy of signs
+with the copy assignment moves assigns
+we move the signs with our move
+assignment they all use an assignment
+now if we use an assignment operator it
+means that the object has been
+constructed and hopefully that's true
+but in some rarer cases we have objects
+that are not constructed yet if we have
+just just the memory just chunks of
+memory that we got from somewhere and
+we'd like to construct instead of of
+calling the assignment operator we'd
+like to call constructor on those chunks
+of memory or for that we use there an
+initialized come apart and they should I
+spell the initials copy initiative move
+and those use constructors so this takes
+this is the constructor that takes a
+value this is a copy constructor this is
+a move constructor so in practice you
+get a chunk of memory from somewhere
+shared memory or whatever and you'd like
+to fill it with values but you can't
+call fill because you can't call the
+assignment operator because it's just
+raw memory right hasn't been initialized
+yet so we need to call the constructor
+this is what initial an initial still
+does write it call it takes two pointers
+well at the beginning in the end and
+cause the value constructor leading to
+an initiative in initialization in this
+relation of that chunk of memory now
+once we were done with it we want to
+call the destructor of those guys
+because we've been in charge of that
+constructor probably also in charge of
+chording the destructor and that was
+stood destroy does like sounds familiar
+right destroy
+God wouldn't really use a day-to-day
+basis with us that's what it does
+so destroy will destroy the call the
+destructor of all the elements in that
+collection and if we'd like to call the
+other kinds of constructors does default
+constructor or value good structure what
+value in Australia in initialization
+goes in an initialize different
+construct yesterday's value construct
+and we've unlocked our final rune the
+underscore n that that changes a little
+the interface like instead of taking a
+beginning an end it takes it begin and a
+size at second example so studio thing
+Phil so Phil takes begin and then value
+put that value all the way through Phil
+n takes a begin and a size okay and a
+value and it fills the five the first
+five elements starting from begin it
+fills them with the fortitude now would
+you think this line of this third line
+of code does imagine that collection is
+a vector an empty vector for example
+what do you think is in collection after
+executing executing that third line of
+code so that a little louder
+absolutely that would insert five
+elements equal to 42 right because it
+would assign through the back inserted
+operator five signs right this time
+we've been around the world everywhere
+you know everything in the STL
+algorithms library now what what's one
+thing you can use them in your code to
+make it more expressive right you can
+think about if you'll want to write a
+for loop to think about if you could use
+an algorithm instead or if you could
+replace existing four lips there are
+like a bit of a problem in your code by
+an SL gotham's to make it smoother to
+work with
+and you should like second pair of eyes
+I always like to read code so you can
+reach out to me and show me your code
+then I can have a look and think about
+which algorithm with you we can put in
+your code I mean more than happy to look
+at code if you like to see more
+algorithms there are some outside of the
+SEL and the library next door is boost
+boost algorithms which contains all the
+algorithms that are in the same spirit
+as the algorithms of the STL sin are
+we'll probably I will publish on free on
+C++ a series of articles going all
+through all these guys to go further
+it's a good thing to understand in depth
+VSD algorithms it's I think it's a good
+in Destin investment of our time about
+that complexity about their prerequisite
+post requisite think about sorted
+collections for example and and see how
+they're implemented and that's often
+quite instructive and finally if you use
+them on a day to day basis you can get
+inspired you can have a better intuition
+of what abstractions work well and
+that's fundamental for writing good code
+and that that intuition you can use that
+in your own code and once you're
+familiar enough you can start thinking
+about writing your own algorithm so what
+sort of algorithm can we write well we
+can combine algorithm and existing
+algorithm with an existing room to
+create a new a new combination like salt
+copy as an exist for example or we could
+add a city on the map if I were to add
+something I think I would add something
+to the algorithm that sets do something
+like an algorithm that would have three
+outputs those are in a not in bb9
+a and both in a and B or in Singapore I
+think that if you think about things
+throughout I'm happy to hear about that
+too will start a new family
+if you'd like to get the map you can
+download it on fluency peepee calm slash
+get the map and there you can also order
+the poster that you can hang in your
+homes and offices and for the people in
+the room if you'd like to acquire a
+poster right now like those one I've got
+a bunch of them with me so you can come
+and see me after the talk you should
+like to get in touch you can find me on
+Twitter at Jericho and if you're
+interested in reading about the STL or
+about expressive code in general you can
+check out fluency PP Kampf UN C++ with a
+new post every every Tuesday and every
+Friday about expressive code in C++
+thanks
+[Applause]

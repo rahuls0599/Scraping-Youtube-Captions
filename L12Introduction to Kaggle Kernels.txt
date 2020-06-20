@@ -1,0 +1,183 @@
+YUFENG GUO: On this
+episode of AI Adventures,
+find out what Kaggle
+Kernels are and how to get
+started using them.
+Though there's no
+popcorn in this episode,
+I can assure you that
+Kaggle Kernels are popping.
+Kaggle is a platform for doing
+and sharing data science.
+You may have heard about
+some of their competitions,
+which often have cash prizes.
+It's also a great place
+to practice data science
+and learn from the community.
+Kaggle Kernels are
+essentially Jupyter Notebooks
+in the browser that can be
+run right before your eyes,
+all free of charge.
+Let me say that again in case
+you missed it, because this
+is truly quite amazing.
+Kaggle Kernels is
+a free platform
+to run Jupyter Notebooks
+in your browser.
+This means that you
+can save yourself
+the hassle of setting
+up a local environment
+and have a Jupyter
+Notebook environment
+right inside your browser
+anywhere in the world
+that you have an
+internet connection.
+Not only that-- the processing
+power for the notebook
+comes from servers up in the
+clouds, not your local machine.
+So you can do a lot of data
+science and machine learning
+without heating up your laptop.
+Kaggle also recently
+upgraded all their kernels
+to have more compute
+power and more memory,
+as well as extending
+the length of time
+that you can run a notebook
+cell to up to 60 minutes.
+But OK.
+Enough of me gushing
+about Kaggle Kernels.
+Let's see what it
+actually looks like.
+Once we create an
+account at Kaggle.com,
+we can choose a
+dataset that we want
+to play with and spin up a
+new kernel or notebook in just
+a few clicks.
+The dataset that we
+started in comes preloaded
+in the environment
+of that kernel,
+so there's no need
+to deal with pushing
+a dataset into that machine
+or waiting for large datasets
+to copy over a network.
+Of course, you can still
+load additional files
+into the kernel if you want.
+In our case, we'll
+continue to play
+with our fashion
+and this dataset.
+It's a dataset that contains
+10 categories of clothing
+and accessory types--
+things like pants, bags,
+heels, shirts, and so on.
+There are 50,000 training
+samples and 10,000 evaluation
+samples.
+Let's explore the dataset
+in our Kaggle Kernel.
+Looking at the dataset,
+it's provided on Kaggle
+in the form of CSV files.
+The original data was in a 28
+by 28 pixel grayscale images
+and they've been flattened to
+become 784 distinct columns
+in the CSV file.
+The file also contains
+a column representing
+the index, 0 through 9,
+of that fashion item.
+Since the dataset is already
+in the environment, in pandas--
+this is already loaded--
+let's use it to read these CSV
+files into panda's data frames.
+Now that we've loaded the
+data into a data frame,
+we can take advantage
+of all the features
+that this brings,
+which we covered
+in the previous episode.
+We'll display the first
+five rows with Head,
+and we can run
+Describe to learn more
+about the structure
+of the dataset.
+Additionally, it would
+be good to visualize
+some of these
+images so that they
+can have more meaning to us than
+just rows upon rows of numbers.
+Let's use matplotlib to see what
+some of these images look like.
+Here we'll use the
+matplotlib.pyplot library--
+typically imported as PLT--
+to display the arrays of
+pixel values as images.
+We can see that these
+images, while fuzzy,
+are indeed still
+recognizable as the clothing
+and accessory items
+that they claim to be.
+I really like that
+Kaggle Kernels
+lets me visualize my data in
+addition to just processing it.
+So Kaggle Kernels
+allows us to work
+in a fully interactive notebook
+environment in the browser
+with little to no setup.
+And I really want to
+emphasize that we didn't
+have to do any sort of Python
+environment configuration
+or installation of libraries,
+which is really cool.
+Thanks for watching this
+episode of Cloud AI Adventures.
+Be sure to subscribe
+to the channel
+to catch future episodes
+as they come out.
+Now what are you waiting for?
+Head on over to Kaggle.com
+and sign up for an account
+to play with kernels today.
+[BEEP]
+Though there's no
+popcorn in this episode,
+I can assure you
+that Kaggle Kernels--
+[BEEP]
+You've got to throw harder.
+SPEAKER: That's horrible timing.
+[BEEP]
+YUFENG GUO: Wait, are
+you going to throw
+it this way or this way?
+[BEEP]
+Though there's no
+popcorn in this episode,
+I can assure you that [LAUGHING]
+Kaggle Kernels are popping.

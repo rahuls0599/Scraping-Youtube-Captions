@@ -1,0 +1,21 @@
+Meet TensorBoard, TensorFlow's built in visualizer, which enables you to do a wide range of things, from seeing your model structure to 
+watching your training progress. TensorFlow uses the idea of computational graphs under the hood. This means that instead of adding two numbers
+in the traditional sense, it constructs an add operator and passes in as inputs the values being added together. So when we think about 
+TensorFlow training your model, it's really executing everything as part of its graph. TensorBoard can visualize these models, so you can see 
+what they look like and, more importantly, ensure that you've wired all the pieces of the way you wanted to. Notice how TensorFlow allows us 
+to zoom, pan, and expand elements to see more details. This means that we can look at the model at different layers of abstraction, which can 
+help reduce the visual complexity. Moreover, TensorBoard does more than just show the model structure. It can also plot the progression of 
+metrics on a nice graph. Typically, we might plot things like accuracy, loss, cross entropy. And depending on the model, different metrics can 
+be important for you. And TensorFlow's Candice emitters, they come with a set of values pre-configured to be shown in TensorBoard. So that 
+serves as a great starting point. TensorBoard can display also a wide variety of other information, including histograms, distributions, 
+embeddings, as well as the audio, pictures, and text data that goes with your model. First, we'll start TensorBoard and point it to the 
+directory where our model structure and checkpoint files are saved. This will start a local server on point port 6006. We can see here some of 
+the scalar metrics that are provided by default with the linear classifier. We can also expand and zoom into any of these graphs. Double 
+clicking allows us to zoom back out. You can see our training progressed nicely with a decreasing loss over time. It's also clear that the 
+training hasn't entirely completed, as the loss is still decreasing at a nice rate, even at the end of training. So this might clue us in that 
+perhaps we could run the training process a bit longer, and get the most out of this training process. Let's go over to graphs tab now. Notice 
+that on the surface, the graph is pretty simple. We're able to expand each of these blocks by clicking the plus sign to see more detail. For 
+example, if I expand the linear block, we see that it's made up of a number of sub-components. And we can scroll to zoom in and out, as well as 
+click and drag to pan and see other parts of the graph. Notice also that the names we gave our future columns, like flower features, show up as 
+named graph components. This can help with debugging and identifying how the graph is all hooked up. Most of TensorFlow's operations can be 
+named. So that's a great way to clarify your models and see what's going on. 

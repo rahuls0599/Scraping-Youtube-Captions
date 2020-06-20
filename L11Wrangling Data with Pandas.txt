@@ -1,0 +1,218 @@
+YUFENG GUO: Pandas are
+majestic eaters of bamboo,
+and very good at sleeping
+for long periods of time.
+But they also have
+a secret power--
+chomping down on
+large data sets.
+Today we'll introduce one of the
+most powerful and popular tools
+in data wrangling, and
+it's called Pandas.
+When you think of
+data science, pandas
+is probably not the first
+thing that comes to mind.
+These black and white bears
+spend most of their time
+eating bamboo and sleeping,
+not doing data science.
+But today, we'll use Pandas
+to manipulate our data sets
+and set it up for
+machine learning.
+I can't do the entire library
+justice in just one video,
+but hopefully this overview
+will help you get going.
+And I'll leave it to you to
+explore the fascinating world
+of Pandas in more depth.
+Pandas is an open
+source Python library
+that provides easy to use, high
+performance data structures
+and data analysis tools.
+Cuddly bears aside, the name
+comes from the term panel data,
+a common term for
+multi-dimensional data
+sets, encountered in both
+statistics and econometrics.
+To install Pandas, simply run
+$ pip install pandas inside
+your Python environment.
+Then we can import pandas as pd.
+One of the most common
+things that Pandas ends up
+being used for is
+reading in CSV files
+using the
+[? read csv ?] function.
+It is often the starting
+point for using Pandas.
+Pandas loads this
+data into a DataFrame.
+This can be thought of
+as essentially a table
+or a spreadsheet.
+We can take a quick
+glimpse of our data
+by calling head on our
+DataFrame DataFrames
+have rows of data with
+named columns, which
+in Pandas are called series.
+For me, one of the nicest
+things about DataFrames
+is the describe function, which
+displays a table of statistics
+about your DataFrame.
+This is super useful for
+sanity checking your data set,
+seeing if the distribution of
+your data looks reasonable,
+and whether the properties are
+what you expect them to be.
+I also sometimes will use
+Pandas to shuffle my data.
+This can be useful
+in situations where
+you want to shuffle
+the entire data set,
+rather than merely
+having a look ahead
+buffer as you extract it out.
+For example, if your data
+is not shuffled at all,
+and it is, in fact,
+already sorted,
+you'd want to give it
+an extra good mixing.
+However, for truly
+huge data sets,
+it's possible that this may
+be impractical without more
+sophisticated approaches.
+To access a particular
+column of a data set,
+use bracket notation to pull
+out that column, passing
+in the name of that column.
+If you're wondering what the
+possible column names are,
+you can look back at
+the output of .describe,
+or use df or dataframe.columns
+to access all the columns
+in the DataFrame as an array.
+If you can access
+data column by column,
+then the next thing
+you'll want to know
+is how to access it by row.
+Accessing rows of
+DataFrames is a little bit
+different than from columns.
+For example, if we want the
+row with an index i of a given
+DataFrame, we can use iloc,
+or i location, index location,
+and i.
+Keep in mind that Pandora
+operates on a 0 based indexing
+system.
+So the first row is
+actually index 0.
+Sometimes you may want a
+particular row and column.
+Because rows and columns
+are accessed differently,
+we'll need different
+techniques to get that done.
+In particular, if you want
+row 5 of a column called name,
+you would use
+something like this.
+And where things get
+much more interesting
+is when you want to get a whole
+range of columns and rows.
+On the column side, the
+way to get multiple columns
+is to pass in an array
+of those column names.
+If there are many, many columns
+and you don't want to type them
+all out, you can use the columns
+array, the .columns array,
+and select a range of
+column names from there,
+and use that to select columns.
+If we want to get
+a range of rows,
+we can use colon notation
+inside the brackets
+that follow iloc, like so.
+And the starting index here
+is included, while the ending
+index is excluded.
+So this will return row
+indices 5, 6, 7, 8, and 9,
+but not row index 10.
+Say we wanted both--
+both a subset of columns
+and a subset of rows.
+What would that look like?
+Well, we can combine
+what we've learned so far
+and make one expression
+that gets the job done.
+So first we'll choose the column
+names, just like we did before.
+Then we get the columns
+back, and then we
+can select the rows from that
+DataFrame using that colon
+notation.
+And so once you get
+the hang of things,
+you'll actually be able to
+collapse these three lines down
+into just one expression.
+Something like this.
+And if this is the
+first time you're
+seeing this sort
+of collapsing, I'd
+encourage you to
+pause here and look
+at how this expression is
+exactly equivalent to what
+we showed earlier.
+I'll still be here
+when you get back.
+So happy to wait.
+We've looked at some simple
+data manipulation in this video,
+and there is much more that
+the Pandas ecosystem offers,
+from its efficient file storage
+in the form of pie tables
+and HDF5 format to running
+certain statistical analyzes.
+Now this has been just a quick
+overview of what Pandas can do,
+so check out the
+documentation links below
+to start your
+journey with Pandas.
+Thanks for watching this
+episode of Cloud AI Adventures.
+Be sure to subscribe
+to the channel
+to check out future episodes
+right when they come out.
+For now, get out there and
+try Pandas in the wild.

@@ -1,0 +1,220 @@
+YUFENG GUO: In this
+thrilling conclusion
+to our video on training
+big models in the cloud,
+I'll help you scale your compute
+power from machine learning.
+Will our training
+have enough resources?
+Stay tuned to find out.
+In our previous
+episode, we talked
+about the problems that are
+encountered when your data is
+too big to fit on
+your local machine,
+and we discussed how we can move
+that data off onto the cloud
+to have scalable storage.
+Today, we move on to the
+second half of that problem--
+getting those compute
+resources wrangled together.
+When training larger
+models, the current approach
+involves doing
+training in parallel.
+What this means is that our
+data gets split up and sent
+to many worker machines,
+And then the model must
+put the information
+in signals it's
+getting back together to
+create the fully trained model.
+Now, you could spin up
+some virtual machines
+and install the
+network libraries,
+network them together,
+configure them
+to run distributed
+machine learning,
+and then when you
+finish, you'd want
+to take down those machines.
+While this may
+seem easy to some,
+it can be a challenge
+if you're not
+familiar with things like
+installing GBU drivers
+and debugging
+compatibility problems
+between different versions
+of the underlying libraries.
+So today we'll use Cloud Machine
+Learning Engine's training
+functionality to
+go from Python code
+to train model with no
+infrastructure work needed.
+The service automatically
+acquires and configures
+resources as needed
+and shuts them down
+when it's done training.
+There are three main steps to
+using Cloud Machine Learning
+Engine--
+packaging your Python code,
+creating a configuration file
+that describes the
+kind of machines
+you want, and submitting your
+training job to the cloud.
+Let's see how to
+set up our training
+to take advantage
+of this service.
+We've moved our Python code
+from our Jupyter notebook
+out into a separate
+script on its own.
+Let's call that file task.py.
+This is going to act as our
+Python module, which will
+be called from other files.
+Now, we want to wrap task.py
+inside a Python package.
+Python packages are made
+by placing the module
+inside another folder--
+let's call it trainer--
+and placing an empty file,
+__init__.py, alongside test.py.
+So our final file structure
+is made up of a folder called
+trainer containing two files,
+the __init__py and the task.py
+files.
+While our package
+is called trainer
+our module path is trainer.task.
+If you wanted to break out
+the code into more components,
+you would include those
+in this folder as well.
+For example, you might
+have, say, a util.py
+in the trainer folder.
+Once our code is
+packaged up, it's time
+to create a configuration
+file to specify what machines
+you want running your training.
+You can choose to
+run your training
+with just a small number
+of machines, as few as one
+or, many machines with
+GPUs attached to them.
+There are a few predefined
+specifications, which
+make it easy to get started.
+And once you grow
+out of those, you
+can configure a
+custom architecture
+to your heart's content.
+We've got our Python
+code packaged up,
+and we have our configuration
+file written out.
+So let's move on to the step
+you've all been waiting for,
+the training.
+To submit a training job, we'll
+use the gcloud command line
+tool and run gcloud ml-engine
+jobs submit training.
+There is also an
+equivalent REST API call.
+We specify a unique job name,
+the package path and module
+name, the region for
+your job to run in,
+and a cloud storage
+directory to place
+the outputs of your training.
+Be sure to use the same region
+as where your data is stored
+to get optimal performance.
+Once you run this command,
+your Python package
+is going to get zipped up and
+uploaded to the directory we
+just specified.
+From there, the
+package will be run
+in the cloud on the
+machines that we
+specified in the configuration.
+You can monitor your training
+job in the Cloud Console
+by going to ML Engine
+and selecting Jobs.
+There, we will see a list of
+all the jobs we've ever run,
+including the current job.
+You can also see a timer on
+how much time the job has taken
+so far and a link
+to the logs that
+are coming out of the model.
+Our code exports the training
+model to our cloud storage path
+that we have provided
+in the job directory.
+So from here, we can easily
+point to prediction service
+directly at the outputs and
+create a prediction service,
+as we learned about Episode
+4, Serverless Predictions
+at Scale.
+Using Cloud Machine
+Learning Engine,
+we can achieve
+distributed training
+without dealing with
+infrastructure ourselves.
+As a result, we can spend
+more time with our data.
+Simply package up the code,
+add that configuration file,
+and submit the training job.
+If you want the
+nitty gritty details
+on TensorFlow's
+distributed training model
+check out this in-depth talk
+from the TensorFlow Dev Center.
+But for now, remember,
+spend less time building
+distributed systems and
+more time with your data
+by training your model using
+Cloud Machine Learning Engine.
+I'm Yufeng Guo, and thanks for
+watching this episode of Cloud
+AI Adventures.
+If you enjoyed it, please go
+ahead and hit that like button.
+And for more machine
+learning action,
+be sure to subscribe
+to the channel
+to catch future episodes
+right when they come out.
+[MUSIC PLAYING]

@@ -1,0 +1,28 @@
+Google's Cloud Machine Learning Engine enables you to create a prediction service for your TensorFlow model without any ops work. We're ready 
+to move to the second phase-- serving those predictions. When taking on the challenge of serving predictions, we would ideally want to deploy a
+model that is purpose-built for serving. In particular, a fast, lightweight model that is static since we don't need to do any updating while 
+serving predictions. Additionally, if we want our prediction server to scale with demand, that adds another layer of complexity to the problem. 
+It turns out that TensorFlow already has a built-in function that can take care of generating an optimized model for serving predictions. It 
+handles all the adjustments needed, which saves you a lot of work. The function that we're interested in is called export_savedmodel, and we 
+can run it directly from our classifier object once we're satisfied with the state of the trained model. This will take a snapshot of your 
+model and export it as a set of files that you can use elsewhere. Over time, as your model improves, you can continue to produce exported 
+models in order to provide multiple versions. These exported files are made up of a file and a folder. The file is called saved_model.pb, which
+defines the model structure. The variables folder holds two files, supplying the trained weights in our model. Once you have an exported model,
+you're ready to serve it in production. Here are your two primary options-- you can use TensorFlow serving or the Cloud Machine Learning Engine
+prediction service. TensorFlow serving is a part of TensorFlow, and available on GitHub. However, today we will focus our attention on Cloud 
+Machine Learning Engine's prediction service, though they both have very similar file interfaces. Cloud Machine Learning Engine allows you to 
+take this exported model and turn it into a prediction service with a built-in endpoint and auto-scaling which goes all the way down to zero. 
+It's also complete with a feature-rich command line tool, API, and UI. So we can interact with it in a number of ways, depending on your 
+preferences. Let's see an example of how to use Cloud Machine Learning Engine's prediction service with our Iris sample.  First, we will run 
+export_savedmodel on our trained classifier. This will generate an exported model that we can use for our prediction service. Next, we'll 
+upload those files to Google Cloud storage. Cloud Machine Learning Engine will read from Cloud storage when creating a new model version. Be 
+sure to choose the regional storage class, and to ensure that your compute and storage in the same region. In the Cloud Machine Learning Engine
+UI, we can create a new model, which is really just the wrapper for our released versions. Versions hold our individual exported models while 
+the model abstraction helps route the incoming traffic to the appropriate version of your choice. Here we are in the models list view where we 
+can create a new model All it takes to create a model is to just give it a name. Let's call it ours Iris Model. Next, we'll create a version by
+choosing a name for this particular model version and pointing it to our Cloud storage directory that holds our exported files. And just like 
+that, we've created our model. All it took was pointing the service at our exported model and giving it a name. The service handled all the 
+operational aspects of setting up and securing the endpoint. Moreover, we didn't need to write our own code for scaling it out based on demand. 
+And since this is the Cloud, this elasticity means you don't need to pay for unused compute when demand is low. By setting up a prediction 
+service for our Iris Model that didn't need any ops work, we've been able to go from trained model to deployed auto-scaling prediction service 
+in a matter of minutes, which means more time to get back to working with your data. 
