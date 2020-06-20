@@ -1,4 +1,4 @@
 #ignore all kind of files
 *
-#except php files
+#except .py files
 !*.py
