@@ -19,3 +19,5 @@ for word in CAPTIONS:
 TEXT_FILE = open(FILE_NAME+".txt", "w")
 TEXT_FILE.write(TOTAL_CAPTIONS)
 TEXT_FILE.close()
+
+with open("video.csv")
