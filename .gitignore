@@ -3,5 +3,6 @@
 #except .py files
 !*.py
 
-#and the video_ids file
+#and the video files
 !video_ids.csv
+!video_urls.csv

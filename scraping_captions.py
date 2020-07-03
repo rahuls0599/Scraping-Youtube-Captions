@@ -4,10 +4,10 @@ and stores the available captions (if any) in a file at current working director
 from youtube_transcript_api import YouTubeTranscriptApi
 
 # provide the video id- the part after v=...
-VIDEO_ID = r'PPD8lER8ju4&list=PLH2l6uzC4UEW3iJO4T0qUeUEp_X-f1U7S&index=23'
+VIDEO_ID = r'Fk8LrQ1H6a0'
 
 # provide the name of output file in quotes
-FILE_NAME = r"/mnt/c/Users/rahul/Documents/Tutorials/Probability and Statistics/CrashCourseStatistics_21-P-Value Problems"
+FILE_NAME = r"/mnt/c/Users/rahul/Documents/Tutorials/Data Structures and Algorithms/Destructors"
 
 CAPTIONS = YouTubeTranscriptApi.get_transcript(VIDEO_ID)
 TOTAL_CAPTIONS = "URL = https://www.youtube.com/watch?v="+VIDEO_ID+"\n"

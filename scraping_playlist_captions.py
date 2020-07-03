@@ -4,37 +4,36 @@ and stores the available captions for each video (if any) in a file at current w
 # provide the name of output file in quotes
 # importing the libraries 
 from youtube_transcript_api import YouTubeTranscriptApi
-from bs4 import BeautifulSoup 
-import requests 
+import os
 
-PLAYLIST_NAME = "CrashCourseStatistics"
-FILE_NAME = r"/mnt/c/Users/rahul/Documents/Tutorials/Probability and Statistics/" + PLAYLIST_NAME
+PLAYLIST_ID = 'PLVHgQku8Z934EjJNuMRnCgVF0Uf2kTX9y'
+PLAYLIST_URL = 'https://www.youtube.com/playlist?list=' + PLAYLIST_ID
+CREATE_URL_FILE_CMD = 'youtube-dl -i --get-id ' + PLAYLIST_URL + '> ./video_urls.csv'
+os.system(CREATE_URL_FILE_CMD)
+PLAYLIST_NAME = "Simplilearn Linux"
+FILE_NAME = r"/mnt/c/Users/rahul/Documents/Tutorials/" + PLAYLIST_NAME
 
-with open("video_ids.csv") as video_id_list:
+TOTAL_CAPTIONS = ""
+with open("video_urls.csv") as video_id_list:
     for VIDEO_ID in video_id_list:
-    
+        
+        '''if ( i%2 == 0):
+            TOTAL_CAPTIONS = "TITLE = " + VIDEO_ID + "\n"
+            i = i + 1
+            continue '''
+            
         #Forming the complete url of the video
         URL = "https://www.youtube.com/watch?v="+VIDEO_ID
         
         #getting the captions
         CAPTIONS = YouTubeTranscriptApi.get_transcript(VIDEO_ID)
         
-        # getting the request from url 
-        # FLAG_R = requests.get(URL) 
-	
-        # converting the text 
-        # FLAG_S = BeautifulSoup(FLAG_R.text, "html.parser") 
-	
-        # finding meta info for title 
-        # TITLE = FLAG_S.find("h1", class_="style-scope ytd-video-primary-info-renderer").children[0].text.replace("\n", "") 
-        
         #desired file name for storing the captions
         # FILE_NAME = r"/mnt/c/Users/rahul/Documents/" + "CrashCourseStatistics"
         
         #storing the name of video and its url as initials
-        TOTAL_CAPTIONS = "URL = " + URL + "\n"  # + "TITLE = " + TITLE + "\n" 
-        
-        
+        TOTAL_CAPTIONS = "URL = " + URL + "\n"  
+
         for word in CAPTIONS:
             TOTAL_CAPTIONS = TOTAL_CAPTIONS + word['text'] + "\n"
         
